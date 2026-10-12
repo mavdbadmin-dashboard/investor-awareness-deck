@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treat Your Stock Like a Product | Investor Awareness for Public Companies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ROOT & GLOBAL
+   ============================================================ */
+:root {
+  --navy:       #0A1628;
+  --navy-mid:   #0F1E38;
+  --navy-light: #152540;
+  --blue:       #1E90FF;
+  --blue-glow:  #1E90FF44;
+  --blue-dim:   #1565CC;
+  --white:      #FFFFFF;
+  --off-white:  #E8EEF8;
+  --grey:       #8A9BB5;
+  --grey-light: #C2CEDF;
+  --green:      #00D68F;
+  --amber:      #FFB800;
+  --red:        #FF4D6D;
+  --nav-width:  230px;
+  --slide-pad:  6vw;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   LEFT NAV
+   ============================================================ */
+#nav {
+  position: fixed;
+  left: 0; top: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  background: rgba(10,22,40,0.97);
+  border-right: 1px solid rgba(30,144,255,0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 0 20px;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  overflow-y: auto;
+}
+
+#nav-logo {
+  padding: 0 22px 24px;
+  border-bottom: 1px solid rgba(30,144,255,0.12);
+  margin-bottom: 14px;
+}
+
+#nav-logo .brand {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+#nav-logo .sub {
+  font-size: 10px;
+  color: var(--grey);
+  margin-top: 3px;
+  letter-spacing: 0.04em;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 22px;
+  text-decoration: none;
+  color: var(--grey);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: var(--white);
+  background: rgba(30,144,255,0.08);
+  border-left-color: var(--blue);
+}
+
+.nav-item .slide-num {
+  font-size: 9.5px;
+  color: var(--grey);
+  min-width: 20px;
+  font-weight: 600;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+#main {
+  margin-left: var(--nav-width);
+}
+
+/* ============================================================
+   SLIDES
+   ============================================================ */
+.slide {
+  min-height: 100vh;
+  padding: 80px var(--slide-pad);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid rgba(30,144,255,0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(30,144,255,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   SLIDE 1 — COVER
+   ============================================================ */
+#slide-1 {
+  background: linear-gradient(135deg, #0A1628 0%, #0D1E38 50%, #0A1628 100%);
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.cover-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cover-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--blue);
+}
+
+.cover-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 900;
+  line-height: 1.0;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.cover-title span {
+  color: var(--blue);
+}
+
+.cover-subtitle {
+  font-size: clamp(16px, 2vw, 22px);
+  color: var(--off-white);
+  font-weight: 400;
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 60px;
+  opacity: 0.85;
+}
+
+.cover-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), transparent);
+  margin-bottom: 36px;
+}
+
+.cover-meta {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.cover-meta-item .label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--grey);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.cover-meta-item .value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.cover-bg-text {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(100px, 18vw, 220px);
+  font-weight: 900;
+  color: rgba(30,144,255,0.03);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================================
+   SLIDE HEADERS
+   ============================================================ */
+.slide-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slide-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--blue);
+}
+
+.slide-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.slide-title .accent { color: var(--blue); }
+.slide-title .red { color: var(--red); }
+.slide-title .green { color: var(--green); }
+.slide-title .amber { color: var(--amber); }
+
+.slide-sub {
+  font-size: clamp(14px, 1.6vw, 18px);
+  color: var(--grey-light);
+  max-width: 680px;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   CARDS & GRIDS
+   ============================================================ */
+.card-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.card-grid-2 { grid-template-columns: 1fr 1fr; }
+.card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+.card-grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(30,144,255,0.12);
+  border-radius: 12px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+}
+
+.card.blue::before { background: linear-gradient(90deg, var(--blue), transparent); }
+.card.green::before { background: linear-gradient(90deg, var(--green), transparent); }
+.card.red::before { background: linear-gradient(90deg, var(--red), transparent); }
+.card.amber::before { background: linear-gradient(90deg, var(--amber), transparent); }
+
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.card-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.card-value {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.card-value.blue { color: var(--blue); }
+.card-value.green { color: var(--green); }
+.card-value.red { color: var(--red); }
+.card-value.amber { color: var(--amber); }
+.card-value.white { color: var(--white); }
+
+.card-desc {
+  font-size: 13px;
+  color: var(--grey-light);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   STAT CALLOUTS
+   ============================================================ */
+.stat-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  background: rgba(30,144,255,0.06);
+  border: 1px solid rgba(30,144,255,0.15);
+  border-radius: 10px;
+  padding: 20px 28px;
+  flex: 1;
+  min-width: 160px;
+}
+
+.stat-box .num {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 900;
+  color: var(--blue);
+  line-height: 1;
+}
+
+.stat-box .num.green { color: var(--green); }
+.stat-box .num.red { color: var(--red); }
+.stat-box .num.amber { color: var(--amber); }
+
+.stat-box .stat-label {
+  font-size: 12px;
+  color: var(--grey);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   VISUAL ELEMENTS
+   ============================================================ */
+.imbalance-visual {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  margin: 36px 0;
+}
+
+.imbalance-col {
+  flex: 1;
+  background: var(--navy-mid);
+  border-radius: 12px;
+  padding: 28px;
+  border: 1px solid rgba(30,144,255,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.imbalance-col.sell {
+  border-color: rgba(255,77,109,0.3);
+  background: rgba(255,77,109,0.05);
+}
+
+.imbalance-col.buy {
+  border-color: rgba(0,214,143,0.3);
+  background: rgba(0,214,143,0.05);
+}
+
+.imbalance-col-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.imbalance-col.sell .imbalance-col-title { color: var(--red); }
+.imbalance-col.buy .imbalance-col-title { color: var(--green); }
+
+.pressure-bar {
+  height: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  position: relative;
+  background: rgba(255,255,255,0.06);
+}
+
+.pressure-fill {
+  height: 100%;
+  border-radius: 6px;
+}
+
+.pressure-fill.red { background: linear-gradient(90deg, var(--red), #ff6b8a); }
+.pressure-fill.green { background: linear-gradient(90deg, var(--green), #33e8b0); }
+
+.pressure-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.pressure-name { font-size: 12px; color: var(--grey-light); }
+.pressure-pct { font-size: 12px; font-weight: 700; }
+.pressure-pct.red { color: var(--red); }
+.pressure-pct.green { color: var(--green); }
+
+.vs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--grey);
+  min-width: 50px;
+}
+
+/* ============================================================
+   COMPARISON TABLE
+   ============================================================ */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+}
+
+.compare-table th {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(30,144,255,0.12);
+}
+
+.compare-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  vertical-align: middle;
+}
+
+.compare-table tr:hover td {
+  background: rgba(30,144,255,0.03);
+}
+
+.compare-table .industry { font-weight: 600; color: var(--white); }
+.compare-table .spend { font-weight: 700; }
+.compare-table .spend.high { color: var(--green); }
+.compare-table .spend.low { color: var(--red); }
+.compare-table .note { color: var(--grey-light); font-size: 13px; }
+
+/* ============================================================
+   FLOW DIAGRAM
+   ============================================================ */
+.flow-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 36px 0;
+  flex-wrap: wrap;
+}
+
+.flow-step {
+  background: var(--navy-mid);
+  border: 1px solid rgba(30,144,255,0.15);
+  border-radius: 10px;
+  padding: 20px 18px;
+  text-align: center;
+  flex: 1;
+  min-width: 130px;
+  position: relative;
+}
+
+.flow-step .step-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.flow-step .step-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.flow-step .step-desc {
+  font-size: 11px;
+  color: var(--grey);
+  line-height: 1.4;
+}
+
+.flow-step.highlight {
+  background: rgba(30,144,255,0.1);
+  border-color: rgba(30,144,255,0.35);
+}
+
+.flow-arrow {
+  font-size: 22px;
+  color: var(--blue);
+  opacity: 0.6;
+  padding: 0 6px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   DILUTION MODEL
+   ============================================================ */
+.model-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+}
+
+.model-table th {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-weight: 600;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 2px solid rgba(30,144,255,0.15);
+}
+
+.model-table td {
+  padding: 13px 14px;
+  font-size: 13.5px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.model-table .scenario { font-weight: 600; }
+.model-table .scenario.bad { color: var(--red); }
+.model-table .scenario.good { color: var(--green); }
+
+.model-highlight-box {
+  background: rgba(255,77,109,0.08);
+  border: 1px solid rgba(255,77,109,0.25);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+
+.model-highlight-box.green-box {
+  background: rgba(0,214,143,0.07);
+  border-color: rgba(0,214,143,0.25);
+}
+
+/* ============================================================
+   BUDGET TABLE
+   ============================================================ */
+.budget-visual {
+  background: var(--navy-mid);
+  border: 1px solid rgba(30,144,255,0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 28px 0;
+}
+
+.budget-header {
+  background: rgba(30,144,255,0.1);
+  padding: 16px 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.budget-header .col-head {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-weight: 600;
+}
+
+.budget-row {
+  padding: 16px 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  align-items: center;
+}
+
+.budget-row:last-child { border-bottom: none; }
+.budget-row:hover { background: rgba(30,144,255,0.03); }
+
+.budget-tier { font-weight: 600; font-size: 14px; }
+.budget-cap { color: var(--grey-light); font-size: 13px; }
+.budget-spend { font-weight: 700; color: var(--green); font-size: 14px; }
+.budget-pct { color: var(--amber); font-weight: 600; font-size: 13px; }
+
+/* ============================================================
+   IR CHANNELS
+   ============================================================ */
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.channel-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(30,144,255,0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.channel-icon { font-size: 24px; margin-bottom: 10px; }
+.channel-name { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.channel-desc { font-size: 12px; color: var(--grey); line-height: 1.4; }
+.channel-cost { font-size: 11px; color: var(--amber); margin-top: 8px; font-weight: 600; }
+
+/* ============================================================
+   NARRATIVEOS SECTION
+   ============================================================ */
+.platform-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 28px 0;
+}
+
+.platform-feat {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--navy-mid);
+  border: 1px solid rgba(30,144,255,0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.platform-feat-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: rgba(30,144,255,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-feat-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.platform-feat-desc { font-size: 12px; color: var(--grey-light); line-height: 1.4; }
+
+/* ============================================================
+   CTA SLIDE
+   ============================================================ */
+#slide-10 {
+  background: linear-gradient(135deg, #0A1628 0%, #0B1A30 100%);
+  text-align: center;
+  align-items: center;
+}
+
+.cta-headline {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+
+.cta-sub {
+  font-size: clamp(15px, 1.8vw, 20px);
+  color: var(--grey-light);
+  max-width: 560px;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 36px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.cta-btn.primary {
+  background: var(--blue);
+  color: var(--white);
+  box-shadow: 0 0 30px rgba(30,144,255,0.3);
+}
+
+.cta-btn.primary:hover {
+  background: #2199ff;
+  box-shadow: 0 0 40px rgba(30,144,255,0.45);
+  transform: translateY(-1px);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(30,144,255,0.4);
+}
+
+.cta-btn.secondary:hover {
+  background: rgba(30,144,255,0.1);
+}
+
+.cta-contact {
+  margin-top: 60px;
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  padding: 28px 40px;
+  background: rgba(30,144,255,0.05);
+  border: 1px solid rgba(30,144,255,0.12);
+  border-radius: 14px;
+}
+
+.cta-contact-item .label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.cta-contact-item .value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* ============================================================
+   QUOTE BLOCK
+   ============================================================ */
+.quote-block {
+  background: rgba(30,144,255,0.06);
+  border-left: 4px solid var(--blue);
+  border-radius: 0 10px 10px 0;
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+
+.quote-block p {
+  font-size: clamp(15px, 1.8vw, 20px);
+  color: var(--off-white);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.quote-block .quote-source {
+  font-size: 12px;
+  color: var(--grey);
+  margin-top: 12px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ============================================================
+   ALERT BOX
+   ============================================================ */
+.alert-box {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.alert-box.red {
+  background: rgba(255,77,109,0.08);
+  border: 1px solid rgba(255,77,109,0.25);
+}
+
+.alert-box.green {
+  background: rgba(0,214,143,0.07);
+  border: 1px solid rgba(0,214,143,0.2);
+}
+
+.alert-box.amber {
+  background: rgba(255,184,0,0.07);
+  border: 1px solid rgba(255,184,0,0.2);
+}
+
+.alert-icon { font-size: 22px; flex-shrink: 0; }
+.alert-content { flex: 1; }
+.alert-title { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.alert-text { font-size: 13px; color: var(--grey-light); line-height: 1.5; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.slide-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 40px;
+  border-top: 1px solid rgba(30,144,255,0.08);
+}
+
+.slide-footer .footer-brand {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+  text-transform: uppercase;
+}
+
+.slide-footer .footer-num {
+  font-size: 11px;
+  color: var(--grey);
+}
+
+.slide-footer .footer-tag {
+  font-size: 11px;
+  color: var(--grey);
+  letter-spacing: 0.06em;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  #nav { display: none; }
+  #main { margin-left: 0; }
+  .card-grid-3, .card-grid-4 { grid-template-columns: 1fr 1fr; }
+  .flow-steps { gap: 8px; }
+  .channel-grid { grid-template-columns: 1fr 1fr; }
+  .platform-features { grid-template-columns: 1fr; }
+  .budget-header, .budget-row { grid-template-columns: 2fr 1fr 1fr; }
+  .budget-pct { display: none; }
+}
+
+@media (max-width: 600px) {
+  .card-grid-2, .card-grid-3, .card-grid-4 { grid-template-columns: 1fr; }
+  .imbalance-visual { flex-direction: column; }
+  .stat-row { flex-direction: column; }
+  .channel-grid { grid-template-columns: 1fr; }
+  .cta-contact { flex-direction: column; gap: 20px; }
+}
+
+/* ============================================================
+   SECTION TAG
+   ============================================================ */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(30,144,255,0.1);
+  border: 1px solid rgba(30,144,255,0.2);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* pill labels */
+.pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.pill.red { background: rgba(255,77,109,0.15); color: var(--red); }
+.pill.green { background: rgba(0,214,143,0.15); color: var(--green); }
+.pill.blue { background: rgba(30,144,255,0.15); color: var(--blue); }
+.pill.amber { background: rgba(255,184,0,0.15); color: var(--amber); }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     LEFT NAV
+     ============================================================ -->
+<nav id="nav">
+  <div id="nav-logo">
+    <div class="brand">Public Co.</div>
+    <div class="sub">Investor Awareness</div>
+  </div>
+  <a href="#slide-1" class="nav-item active"><span class="slide-num">01</span> Cover</a>
+  <a href="#slide-2" class="nav-item"><span class="slide-num">02</span> The Problem</a>
+  <a href="#slide-3" class="nav-item"><span class="slide-num">03</span> Selling Pressure Math</a>
+  <a href="#slide-4" class="nav-item"><span class="slide-num">04</span> The Product Analogy</a>
+  <a href="#slide-5" class="nav-item"><span class="slide-num">05</span> The False Economy</a>
+  <a href="#slide-6" class="nav-item"><span class="slide-num">06</span> Institutionalization Path</a>
+  <a href="#slide-7" class="nav-item"><span class="slide-num">07</span> What Good IR Looks Like</a>
+  <a href="#slide-8" class="nav-item"><span class="slide-num">08</span> Budget Framework</a>
+  <a href="#slide-9" class="nav-item"><span class="slide-num">09</span> Best-in-Class Programs</a>
+  <a href="#slide-10" class="nav-item"><span class="slide-num">10</span> The Ask</a>
+</nav>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<div id="main">
+
+<!-- ============================================================
+     SLIDE 1 — COVER
+     ============================================================ -->
+<section class="slide" id="slide-1">
+  <div class="cover-bg-text">STOCK</div>
+  <div class="cover-eyebrow">Investor Awareness · Industry Thought Piece</div>
+  <h1 class="cover-title">Treat Your Stock<br><span>Like a Product.</span></h1>
+  <div class="cover-divider"></div>
+  <p class="cover-subtitle">The case for active investor awareness investment in small-cap and micro-cap public companies — and why the companies that don't invest are paying a far higher price than those that do.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Prepared by</div>
+      <div class="value">Independent Research</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Focus</div>
+      <div class="value">Nasdaq Small-Cap / Micro-Cap</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Market Cap Range</div>
+      <div class="value">$50M – $500M</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 2 — THE PROBLEM
+     ============================================================ -->
+<section class="slide" id="slide-2">
+  <div class="section-tag">02 · The Problem</div>
+  <h2 class="slide-title">A Market Built on<br><span class="red">Structural Imbalance</span></h2>
+  <p class="slide-sub">In the micro and small-cap universe, the supply of sellers almost always outpaces the demand from buyers — and most companies are doing nothing about it.</p>
+
+  <div class="imbalance-visual">
+    <!-- SELL SIDE -->
+    <div class="imbalance-col sell">
+      <div class="imbalance-col-title">⬇ Selling Pressure — Always Present</div>
+      <div class="pressure-row">
+        <span class="pressure-name">Warrant holders (discounted conversion)</span>
+        <span class="pressure-pct red">15–25%</span>
+      </div>
+      <div class="pressure-bar"><div class="pressure-fill red" style="width:85%"></div></div>
+      <div class="pressure-row">
+        <span class="pressure-name">Convertible note holders</span>
+        <span class="pressure-pct red">10–20%</span>
+      </div>
+      <div class="pressure-bar"><div class="pressure-fill red" style="width:65%"></div></div>
+      <div class="pressure-row">
+        <span class="pressure-name">Insider / early investor lockup expiry</span>
+        <span class="pressure-pct red">10–15%</span>
+      </div>
+      <div class="pressure-bar"><div class="pressure-fill red" style="width:55%"></div></div>
+      <div class="pressure-row">
+        <span class="pressure-name">Prior PIPE participants</span>
+        <span class="pressure-pct red">8–15%</span>
+      </div>
+      <div class="pressure-bar"><div class="pressure-fill red" style="width:48%"></div></div>
+      <div style="margin-top:20px; padding:14px; background:rgba(255,77,109,0.1); border-radius:8px;">
+        <div style="font-size:22px; font-weight:900; color:var(--red);">25–40%+</div>
+        <div style="font-size:12px; color:var(--grey-light); margin-top:4px;">of market cap in potential sellers at any given time</div>
+      </div>
+    </div>
+
+    <div class="vs-divider">VS</div>
+
+    <!-- BUY SIDE -->
+    <div class="imbalance-col buy">
+      <div class="imbalance-col-title">⬆ Buying Demand — Only If You Create It</div>
+      <div class="pressure-row">
+        <span class="pressure-name">Organic retail discovery</span>
+        <span class="pressure-pct green">Minimal</span>
+      </div>
+      <div class="pressure-bar"><div class="pressure-fill green" style="width:15%"></div></div>
+      <div class="pressure-row">
+        <span class="pressure-name">Institutional buyers (below thresholds)</span>
+        <span class="pressure-pct green">None</span>
+      </div>
+      <div class="pressure-bar"><div class="pressure-fill green" style="width:5%"></div></div>
+      <div class="pressure-row">
+        <span class="pressure-name">Analyst coverage (absent at micro-cap)</span>
+        <span class="pressure-pct green">None</span>
+      </div>
+      <div class="pressure-bar"><div class="pressure-fill green" style="width:5%"></div></div>
+      <div class="pressure-row">
+        <span class="pressure-name">IR-driven retail awareness</span>
+        <span class="pressure-pct green">$0 Spent</span>
+      </div>
+      <div class="pressure-bar"><div class="pressure-fill green" style="width:0%"></div></div>
+      <div style="margin-top:20px; padding:14px; background:rgba(0,214,143,0.08); border-radius:8px;">
+        <div style="font-size:22px; font-weight:900; color:var(--green);">~0%</div>
+        <div style="font-size:12px; color:var(--grey-light); margin-top:4px;">of capital allocated to creating active demand for the stock</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box red">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-content">
+      <div class="alert-title">The result is predictable and preventable</div>
+      <div class="alert-text">Without active demand creation, the stock drifts down under its own selling pressure. The company then needs another dilutive raise at a lower price — which brings more sellers, more pressure, and the cycle repeats.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="footer-brand">Investor Awareness Series</div>
+    <div class="footer-num">02 / 10</div>
+    <div class="footer-tag">CONFIDENTIAL</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 3 — SELLING PRESSURE MATH
+     ============================================================ -->
+<section class="slide" id="slide-3">
+  <div class="section-tag">03 · The Math</div>
+  <h2 class="slide-title">$400M Market Cap.<br><span class="red">$100M+ in Sellers.</span></h2>
+  <p class="slide-sub">The numbers behind why micro-cap stocks face persistent downward pressure — and why it's not just "market conditions."</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="num red">25–40%</div>
+      <div class="stat-label">of micro-cap market cap is typically in warrants, converts & insider positions — all potential sellers</div>
+    </div>
+    <div class="stat-box">
+      <div class="num amber">0.05–0.15%</div>
+      <div class="stat-label">average daily trading volume as % of market cap for micro-cap stocks — <em>very</em> thin</div>
+    </div>
+    <div class="stat-box">
+      <div class="num red">180–360</div>
+      <div class="stat-label">trading days of selling pressure a single $10M variable-rate PIPE can generate at typical micro-cap volumes</div>
+    </div>
+  </div>
+
+  <div class="card-grid card-grid-2">
+    <div class="card red">
+      <div class="card-label">The PIPE Pressure Math</div>
+      <div style="font-size:13px; color:var(--grey-light); line-height:1.7; margin-bottom:16px;">
+        <strong style="color:var(--white);">$10M PIPE raise</strong> at $5/share = 2,000,000 new shares.<br>
+        A $400M market cap company trading at 0.08% daily volume = ~<strong style="color:var(--amber);">$320K/day</strong> in dollar volume.<br>
+        The PIPE holder can absorb selling ≈ 15–20% of daily volume without moving the market.<br>
+        That's <strong style="color:var(--red);">~$50K–$65K/day</strong> in selling capacity.<br>
+        $10,000,000 ÷ $57,500/day = <strong style="color:var(--red);">~174 trading days</strong> of continuous pressure.
+      </div>
+      <div class="pill red">174 Days of Selling Pressure from ONE Raise</div>
+    </div>
+    <div class="card amber">
+      <div class="card-label">Typical Seller Composition — $400M Market Cap</div>
+      <div style="margin-top:8px;">
+        <div class="pressure-row" style="margin-bottom:12px;">
+          <span class="pressure-name" style="font-size:13px;">Outstanding warrants</span>
+          <span class="pressure-pct amber" style="font-size:14px;">~$60M</span>
+        </div>
+        <div class="pressure-row" style="margin-bottom:12px;">
+          <span class="pressure-name" style="font-size:13px;">Convertible notes</span>
+          <span class="pressure-pct amber" style="font-size:14px;">~$30M</span>
+        </div>
+        <div class="pressure-row" style="margin-bottom:12px;">
+          <span class="pressure-name" style="font-size:13px;">Insider lockup overhang</span>
+          <span class="pressure-pct amber" style="font-size:14px;">~$20M</span>
+        </div>
+        <div class="pressure-row">
+          <span class="pressure-name" style="font-size:13px;">Prior PIPE participants</span>
+          <span class="pressure-pct amber" style="font-size:14px;">~$15M</span>
+        </div>
+        <div style="margin-top:16px; padding:14px; background:rgba(255,184,0,0.08); border-radius:8px; border:1px solid rgba(255,184,0,0.2);">
+          <div style="font-size:26px; font-weight:900; color:var(--amber);">$125M+</div>
+          <div style="font-size:12px; color:var(--grey-light); margin-top:4px;">in potential sellers against a thin daily volume of ~$320K</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>"Investors can rarely be more than 15–20 percent of daily dollar volume without moving the price against themselves. If a stock doesn't trade $250,000+ per day, a fund is functionally excluded from buying it."</p>
+    <div class="quote-source">— Small-Cap Institute Research</div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="footer-brand">Investor Awareness Series</div>
+    <div class="footer-num">03 / 10</div>
+    <div class="footer-tag">CONFIDENTIAL</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 4 — THE PRODUCT ANALOGY
+     ============================================================ -->
+<section class="slide" id="slide-4">
+  <div class="section-tag">04 · The Product Analogy</div>
+  <h2 class="slide-title">Every Industry Markets Its Product.<br><span class="accent">Yours Is the Exception.</span></h2>
+  <p class="slide-sub">When companies sell consumer goods, software, or services, they spend aggressively on marketing — without hesitation. Stock is the most liquid, highest-margin "product" a public company offers. Yet most spend nothing to sell it.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Industry / Company Type</th>
+        <th>Marketing Spend</th>
+        <th>% of Revenue</th>
+        <th>Logic</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="industry">Consumer Packaged Goods (CPG)</td>
+        <td class="spend high">$XXX million</td>
+        <td class="spend high">~25% of revenue</td>
+        <td class="note">Brand awareness drives shelf demand</td>
+      </tr>
+      <tr>
+        <td class="industry">SaaS / Software</td>
+        <td class="spend high">40–60% of revenue</td>
+        <td class="spend high">40–60%</td>
+        <td class="note">Customer acquisition drives growth multiples</td>
+      </tr>
+      <tr>
+        <td class="industry">E-Commerce / DTC</td>
+        <td class="spend high">15–30% of revenue</td>
+        <td class="spend high">15–30%</td>
+        <td class="note">Paid acquisition is survival</td>
+      </tr>
+      <tr>
+        <td class="industry">Biotech / Clinical-Stage</td>
+        <td class="spend high">$500K–$5M/yr IR</td>
+        <td class="spend high">Significant</td>
+        <td class="note">Visibility drives financing events</td>
+      </tr>
+      <tr>
+        <td class="industry" style="color:var(--red);">Micro/Small-Cap Public Co. (typical)</td>
+        <td class="spend low">$60K–$120K/yr IR</td>
+        <td class="spend low">&lt;0.05% of mkt cap</td>
+        <td class="note" style="color:var(--red);">"We don't do investor marketing"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card-grid card-grid-3" style="margin-top:8px;">
+    <div class="card blue">
+      <div class="card-icon">📦</div>
+      <div class="card-label">CPG Insight</div>
+      <div class="card-value blue">25%</div>
+      <div class="card-desc">Procter & Gamble, Unilever, and every major CPG brand spend ~25% of revenue on marketing. They know demand doesn't create itself.</div>
+    </div>
+    <div class="card green">
+      <div class="card-icon">💻</div>
+      <div class="card-label">SaaS Insight</div>
+      <div class="card-value green">40–60%</div>
+      <div class="card-desc">High-growth SaaS companies invest 40–60% of ARR on sales & marketing. Investor capital is their product — they market it accordingly.</div>
+    </div>
+    <div class="card red">
+      <div class="card-icon">📉</div>
+      <div class="card-label">The Gap</div>
+      <div class="card-value red">~$0</div>
+      <div class="card-desc">Most micro-cap companies spend nearly nothing on investor awareness while facing $100M+ in selling pressure. The math doesn't work.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="footer-brand">Investor Awareness Series</div>
+    <div class="footer-num">04 / 10</div>
+    <div class="footer-tag">CONFIDENTIAL</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 5 — THE FALSE ECONOMY
+     ============================================================ -->
+<section class="slide" id="slide-5">
+  <div class="section-tag">05 · The False Economy</div>
+  <h2 class="slide-title">"We Saved $2M<br><span class="red">and Lost $200M."</span></h2>
+  <p class="slide-sub">The advisors who tell you investor marketing is too expensive are often the same ones who profit when you need another dilutive raise after the stock collapses. Here's the actual math.</p>
+
+  <table class="model-table">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Raise #1</th>
+        <th>Post-Raise Stock</th>
+        <th>Next Raise Dilution</th>
+        <th>Market Cap Lost</th>
+        <th>IR Spend</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="scenario bad">❌ No IR Investment</td>
+        <td>$10M at $5/share<br><span style="font-size:11px;color:var(--grey);">(2M shares issued)</span></td>
+        <td style="color:var(--red); font-weight:700;">Drops to $2/share<br><span style="font-size:11px;color:var(--grey);">–60% in 6 months</span></td>
+        <td style="color:var(--red); font-weight:700;">$10M now = 5M shares<br><span style="font-size:11px;color:var(--grey);">2.5× more dilutive</span></td>
+        <td style="color:var(--red); font-weight:800; font-size:18px;">–$200M+</td>
+        <td style="color:var(--grey);">$0</td>
+      </tr>
+      <tr>
+        <td class="scenario good">✅ Active IR Program</td>
+        <td>$10M at $5/share<br><span style="font-size:11px;color:var(--grey);">(2M shares issued)</span></td>
+        <td style="color:var(--green); font-weight:700;">Holds at $5–$6<br><span style="font-size:11px;color:var(--grey);">Stable with volume</span></td>
+        <td style="color:var(--green); font-weight:700;">$10M = 2M shares<br><span style="font-size:11px;color:var(--grey);">No additional dilution</span></td>
+        <td style="color:var(--green); font-weight:800; font-size:18px;">$0</td>
+        <td style="color:var(--green); font-weight:700;">$1.5–2.5M</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card-grid card-grid-2">
+    <div class="model-highlight-box">
+      <div style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">⛔ Cost of NOT Investing in IR</div>
+      <div style="font-size:32px; font-weight:900; color:var(--red); margin-bottom:8px;">$200M+</div>
+      <div style="font-size:13px; color:var(--grey-light); line-height:1.5;">in market cap destruction, plus 2.5× more dilutive next raise, plus worse terms on all future financing, plus Nasdaq compliance risk, plus reduced negotiating leverage with banks, law firms, and service providers.</div>
+    </div>
+    <div class="model-highlight-box green-box">
+      <div style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); margin-bottom:12px;">✅ Cost of Investing in IR</div>
+      <div style="font-size:32px; font-weight:900; color:var(--green); margin-bottom:8px;">$1.5–2.5M</div>
+      <div style="font-size:13px; color:var(--grey-light); line-height:1.5;">per year — or <strong style="color:var(--white);">0.5% of a $400M market cap</strong> — to protect the entire asset, maintain pricing power on future raises, and build toward institutional liquidity thresholds.</div>
+    </div>
+  </div>
+
+  <div class="alert-box amber" style="margin-top:8px;">
+    <div class="alert-icon">💡</div>
+    <div class="alert-content">
+      <div class="alert-title">The cascading consequences of a stock price decline</div>
+      <div class="alert-text">Stock drops → next raise is more dilutive → market cap shrinks further → Nasdaq compliance issues → bankers demand worse terms → management team loses credibility → it becomes harder to raise at all. Every dollar not spent on IR can cost $50–$100 in market cap.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="footer-brand">Investor Awareness Series</div>
+    <div class="footer-num">05 / 10</div>
+    <div class="footer-tag">CONFIDENTIAL</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 6 — THE INSTITUTIONALIZATION PATH
+     ============================================================ -->
+<section class="slide" id="slide-6">
+  <div class="section-tag">06 · The Path Forward</div>
+  <h2 class="slide-title">Retail First.<br><span class="green">Institutional Next.</span></h2>
+  <p class="slide-sub">Institutional capital doesn't discover you. You have to earn your way into it — and that journey starts with retail awareness. Investor awareness spend is the on-ramp to institutional-grade liquidity.</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="num amber">$300M+</div>
+      <div class="stat-label">Minimum market cap most institutional funds require before they can invest in a stock</div>
+    </div>
+    <div class="stat-box">
+      <div class="num amber">$250K+</div>
+      <div class="stat-label">Minimum daily dollar trading volume required for a fund to participate without moving the market against itself</div>
+    </div>
+    <div class="stat-box">
+      <div class="num amber">3–5</div>
+      <div class="stat-label">Analyst reports typically needed before institutional portfolio managers will consider initiating a position</div>
+    </div>
+  </div>
+
+  <div class="flow-steps">
+    <div class="flow-step highlight">
+      <div class="step-num">Stage 1</div>
+      <div class="step-title">IR Investment</div>
+      <div class="step-desc">Deploy $1.5–2.5M/yr in compliant investor awareness. Reach retail investors across digital channels.</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-num">Stage 2</div>
+      <div class="step-title">Retail Awareness</div>
+      <div class="step-desc">New shareholders discovered through content, media, conferences. Shareholder base diversifies.</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-num">Stage 3</div>
+      <div class="step-title">Volume Builds</div>
+      <div class="step-desc">Higher daily dollar volume crosses the $250K threshold. Stock becomes "investable" for funds.</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-num">Stage 4</div>
+      <div class="step-title">Analyst Coverage</div>
+      <div class="step-desc">Volume & visibility attract analyst coverage. Research reports legitimize the equity story.</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="step-num">Stage 5</div>
+      <div class="step-title">Institutional Entry</div>
+      <div class="step-desc">Funds can now participate. Stable, long-term capital base. Better financing terms on all future raises.</div>
+    </div>
+  </div>
+
+  <div class="card-grid card-grid-2" style="margin-top:8px;">
+    <div class="card blue">
+      <div class="card-label">Without the on-ramp</div>
+      <div style="font-size:13px; color:var(--grey-light); line-height:1.6; margin-top:8px;">Companies stay trapped at micro-cap — dependent on retail, PIPE financing, and high-cost capital. The institutional threshold feels permanently out of reach. Market cap stagnates or declines.</div>
+    </div>
+    <div class="card green">
+      <div class="card-label">With active investor awareness</div>
+      <div style="font-size:13px; color:var(--grey-light); line-height:1.6; margin-top:8px;">Volume builds systematically. Analyst coverage follows. Institutional minimums become achievable. Cost of capital drops. The company gains the negotiating power that comes with a stable, diversified shareholder base.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="footer-brand">Investor Awareness Series</div>
+    <div class="footer-num">06 / 10</div>
+    <div class="footer-tag">CONFIDENTIAL</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 7 — WHAT GOOD IR LOOKS LIKE
+     ============================================================ -->
+<section class="slide" id="slide-7">
+  <div class="section-tag">07 · Execution</div>
+  <h2 class="slide-title">What Effective Investor<br><span class="accent">Awareness Actually Looks Like</span></h2>
+  <p class="slide-sub">Compliant, data-driven, multi-channel — and fully disclosed. Here's what a professional investor awareness program covers.</p>
+
+  <div class="channel-grid">
+    <div class="channel-card">
+      <div class="channel-icon">📰</div>
+      <div class="channel-name">Professional IR Retainer</div>
+      <div class="channel-desc">Full-service IR firm managing investor communications, press release strategy, inbound inquiry handling, and shareholder database management.</div>
+      <div class="channel-cost">$150K–$500K/yr | Core Foundation</div>
+    </div>
+    <div class="channel-card">
+      <div class="channel-icon">🎥</div>
+      <div class="channel-name">Video & Content Marketing</div>
+      <div class="channel-desc">CEO interviews, investor explainer videos, earnings highlights, and company story content distributed on YouTube, LinkedIn, and financial media.</div>
+      <div class="channel-cost">$50K–$200K/yr | High ROI</div>
+    </div>
+    <div class="channel-card">
+      <div class="channel-icon">🐦</div>
+      <div class="channel-name">Retail Social Platforms</div>
+      <div class="channel-desc">Stocktwits, Reddit (r/stocks, r/investing), Twitter/X, and Discord — where retail investors actually discover small-cap stocks. Disclosed, authentic presence.</div>
+      <div class="channel-cost">$30K–$100K/yr | Retail Reach</div>
+    </div>
+    <div class="channel-card">
+      <div class="channel-icon">🗓️</div>
+      <div class="channel-name">Conference & Roadshow</div>
+      <div class="channel-desc">Investor conferences (LD Micro, Benzinga, MicroCap Conference), one-on-one roadshows with family offices, and virtual investor days.</div>
+      <div class="channel-cost">$100K–$300K/yr | Institutional Access</div>
+    </div>
+    <div class="channel-card">
+      <div class="channel-icon">📡</div>
+      <div class="channel-name">Disclosed Paid Media</div>
+      <div class="channel-desc">Section 17(b)-compliant sponsored content on financial media platforms — fully disclosed, clearly labeled. Amplifies the story to targeted investor segments.</div>
+      <div class="channel-cost">$200K–$800K/yr | Volume Driver</div>
+    </div>
+    <div class="channel-card">
+      <div class="channel-icon">📊</div>
+      <div class="channel-name">Analyst Coverage Development</div>
+      <div class="channel-desc">Sponsored research, initiation of coverage with compliant analyst firms, and IR relationships that attract organic sell-side interest as volume grows.</div>
+      <div class="channel-cost">$50K–$150K/yr | Credibility</div>
+    </div>
+  </div>
+
+  <div class="alert-box green">
+    <div class="alert-icon">✅</div>
+    <div class="alert-content">
+      <div class="alert-title">The Regulatory Framework Is Clear</div>
+      <div class="alert-text">Section 17(b) of the Securities Act of 1933 requires full disclosure of paid promotion — identity of payer, amount paid, and clear labeling. Done correctly, investor awareness programs are completely compliant. The question is not whether you can do it; it's whether you can afford not to.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="footer-brand">Investor Awareness Series</div>
+    <div class="footer-num">07 / 10</div>
+    <div class="footer-tag">CONFIDENTIAL</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 8 — BUDGET FRAMEWORK
+     ============================================================ -->
+<section class="slide" id="slide-8">
+  <div class="section-tag">08 · Investment Framework</div>
+  <h2 class="slide-title">The Recommended<br><span class="green">Awareness Budget</span></h2>
+  <p class="slide-sub">Frame investor awareness as a percentage of your capital raise — not as a cost center. Every dollar deployed here protects multiples of that dollar in market cap.</p>
+
+  <div class="budget-visual">
+    <div class="budget-header">
+      <div class="col-head">Company Profile</div>
+      <div class="col-head">IR Spend / Year</div>
+      <div class="col-head">% of Raise</div>
+      <div class="col-head">ROI Frame</div>
+    </div>
+    <div class="budget-row">
+      <div>
+        <div class="budget-tier">Micro-Cap Entry</div>
+        <div class="budget-cap">$50–$150M mkt cap · $5M raise</div>
+      </div>
+      <div class="budget-spend">$500K–$1M</div>
+      <div class="budget-pct">10–20% of raise</div>
+      <div style="font-size:12px; color:var(--grey-light);">Protects $25–$75M in mkt cap</div>
+    </div>
+    <div class="budget-row">
+      <div>
+        <div class="budget-tier">Small-Cap Growth</div>
+        <div class="budget-cap">$150–$300M mkt cap · $10M raise</div>
+      </div>
+      <div class="budget-spend">$1M–$2M</div>
+      <div class="budget-pct">10–20% of raise</div>
+      <div style="font-size:12px; color:var(--grey-light);">Protects $75–$150M in mkt cap</div>
+    </div>
+    <div class="budget-row" style="background:rgba(30,144,255,0.05);">
+      <div>
+        <div class="budget-tier" style="color:var(--blue);">⭐ Small-Cap Established</div>
+        <div class="budget-cap">$300–$500M mkt cap · $10M raise</div>
+      </div>
+      <div class="budget-spend">$1.5M–$2.5M</div>
+      <div class="budget-pct">15–25% of raise</div>
+      <div style="font-size:12px; color:var(--grey-light);">Protects $150–$250M in mkt cap</div>
+    </div>
+    <div class="budget-row">
+      <div>
+        <div class="budget-tier">Lower Mid-Cap</div>
+        <div class="budget-cap">$500M–$1B mkt cap · $20M raise</div>
+      </div>
+      <div class="budget-spend">$2M–$4M</div>
+      <div class="budget-pct">10–20% of raise</div>
+      <div style="font-size:12px; color:var(--grey-light);">Protects $250M+ in mkt cap</div>
+    </div>
+  </div>
+
+  <div class="card-grid card-grid-3">
+    <div class="card blue">
+      <div class="card-label">The ROI Frame</div>
+      <div class="card-value blue">50–100×</div>
+      <div class="card-desc">For every $1 spent on protecting a $400M market cap via IR, you're shielding $50–$100 in market value from dilution and deterioration.</div>
+    </div>
+    <div class="card amber">
+      <div class="card-label">Industry Benchmark (Large Cap)</div>
+      <div class="card-value amber">0.07–0.15%</div>
+      <div class="card-desc">Large-cap companies spend 0.07–0.15% of market cap on IR annually. For micro-caps, the right spend is 0.3–0.6% to compensate for the institutional gap.</div>
+    </div>
+    <div class="card green">
+      <div class="card-label">The Rule of Thumb</div>
+      <div class="card-value green">15–25%</div>
+      <div class="card-desc">Allocate 15–25% of any capital raise to investor awareness. It's the cost of making the raise actually work — not just getting the money in the door.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="footer-brand">Investor Awareness Series</div>
+    <div class="footer-num">08 / 10</div>
+    <div class="footer-tag">CONFIDENTIAL</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 9 — BEST-IN-CLASS IR PROGRAMS
+     ============================================================ -->
+<section class="slide" id="slide-9">
+  <div class="section-tag">09 · Best Practice</div>
+  <h2 class="slide-title">What <span class="accent">Best-in-Class</span><br>Investor Awareness Looks Like</h2>
+  <p class="slide-sub">Effective investor awareness isn't a single tactic — it's a coordinated, multi-channel program built on compliant infrastructure, consistent narrative, and measurable reach. Here's what separates companies that build audiences from those that don't.</p>
+
+  <div class="platform-features">
+    <div class="platform-feat">
+      <div class="platform-feat-icon">🏢</div>
+      <div>
+        <div class="platform-feat-title">Professional IR Firm Engagement</div>
+        <div class="platform-feat-desc">A dedicated IR firm manages shareholder communications, investor inquiry handling, press release strategy, and institutional targeting. Budget: $150K–$500K/yr. This is table stakes — not optional.</div>
+      </div>
+    </div>
+    <div class="platform-feat">
+      <div class="platform-feat-icon">📰</div>
+      <div>
+        <div class="platform-feat-title">Compliant Paid Media &amp; Sponsored Content</div>
+        <div class="platform-feat-desc">Section 17(b)-disclosed sponsored articles, editorial placements, and native advertising on financial media platforms. Proactive Investors, Accesswire, Stockhouse, and financial newsletters. Fully labeled, fully legal.</div>
+      </div>
+    </div>
+    <div class="platform-feat">
+      <div class="platform-feat-icon">🗓️</div>
+      <div>
+        <div class="platform-feat-title">Conference Presence &amp; Roadshows</div>
+        <div class="platform-feat-desc">LD Micro, Benzinga, MicroCap Conference, and virtual investor days. One-on-ones with family offices and small-cap-focused funds. Budget: $100K–$300K/yr. Institutional relationships don't happen in a press release.</div>
+      </div>
+    </div>
+    <div class="platform-feat">
+      <div class="platform-feat-icon">💬</div>
+      <div>
+        <div class="platform-feat-title">Retail Investor Platforms</div>
+        <div class="platform-feat-desc">Authentic, disclosed presence on Stocktwits, Reddit (r/stocks, r/investing, r/ValueInvesting), and investor Discord communities. This is where retail investors discover small-cap stocks — not Bloomberg.</div>
+      </div>
+    </div>
+    <div class="platform-feat">
+      <div class="platform-feat-icon">🎥</div>
+      <div>
+        <div class="platform-feat-title">YouTube &amp; Financial Newsletter Distribution</div>
+        <div class="platform-feat-desc">CEO interview videos, earnings walk-throughs, and company story content distributed via YouTube and email newsletters (Seeking Alpha, Substack investor channels, financial media partnerships). Video converts at 3–5× text.</div>
+      </div>
+    </div>
+    <div class="platform-feat">
+      <div class="platform-feat-icon">🐦</div>
+      <div>
+        <div class="platform-feat-title">Social Media &amp; Content Strategy</div>
+        <div class="platform-feat-desc">Consistent Twitter/X and LinkedIn presence from the CEO and IR team. Data releases, milestones, and equity story amplification. Not a replacement for substance — but an amplifier of it. Cadence matters: weekly minimum.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box blue" style="background:rgba(30,144,255,0.07); border:1px solid rgba(30,144,255,0.2); margin-top:8px;">
+    <div class="alert-icon">📋</div>
+    <div class="alert-content">
+      <div class="alert-title" style="color:var(--blue);">The Compliance Foundation</div>
+      <div class="alert-text">Every element of a best-in-class program is built on full SEC Section 17(b) disclosure. Paid promotion is disclosed. Compensation amounts are stated. Content is labeled. There is no tension between effective marketing and regulatory compliance — they coexist when programs are built correctly from the start.</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <div class="footer-brand">Investor Awareness Series</div>
+    <div class="footer-num">09 / 10</div>
+    <div class="footer-tag">CONFIDENTIAL</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SLIDE 10 — CLOSING FRAMEWORK
+     ============================================================ -->
+<section class="slide" id="slide-10">
+  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; background:radial-gradient(circle, rgba(30,144,255,0.06) 0%, transparent 70%); pointer-events:none;"></div>
+
+  <div class="cover-eyebrow" style="justify-content:center;">The Recommendation · 10 of 10</div>
+  <h2 class="cta-headline">Start treating your stock<br><span style="color:var(--blue);">like the product it is.</span></h2>
+  <p class="cta-sub">Build your investor audience before the market builds it against you. The companies that get this right protect their market cap, raise on better terms, and graduate to institutional liquidity. The ones that don't keep diluting.</p>
+
+  <div class="card-grid card-grid-3" style="margin:40px 0; text-align:left;">
+    <div class="card blue">
+      <div class="card-icon">1️⃣</div>
+      <div class="card-label">Commit the Budget</div>
+      <div class="card-desc">Allocate 15–25% of any capital raise to investor awareness. Non-negotiable line item, not an afterthought. Budget it before you close the raise — not after the stock drops.</div>
+    </div>
+    <div class="card green">
+      <div class="card-icon">2️⃣</div>
+      <div class="card-label">Build the Infrastructure</div>
+      <div class="card-desc">Engage a professional IR firm. Establish your equity narrative. Get on financial media. Show up consistently on the platforms where retail investors actually are.</div>
+    </div>
+    <div class="card amber">
+      <div class="card-icon">3️⃣</div>
+      <div class="card-label">Measure the Outcomes</div>
+      <div class="card-desc">Track daily dollar volume, shareholder count, website IR traffic, and content reach. Tie marketing spend to volume targets. Know what's working and scale it.</div>
+    </div>
+  </div>
+
+  <div class="quote-block" style="text-align:left; max-width:760px;">
+    <p>"The advisors who say 'don't spend on marketing' are often the same ones who profit from the next dilutive raise when the stock collapses. Protect your market cap like the asset it is."</p>
+    <div class="quote-source">— Core Thesis, Investor Awareness for Small-Cap Public Companies</div>
+  </div>
+
+  <div style="margin-top:40px; display:flex; gap:32px; flex-wrap:wrap;">
+    <div class="stat-box" style="flex:1; min-width:180px;">
+      <div class="num green">0.5%</div>
+      <div class="stat-label">of market cap spent on IR protects the other 99.5% from dilution and deterioration</div>
+    </div>
+    <div class="stat-box" style="flex:1; min-width:180px;">
+      <div class="num blue">15–25%</div>
+      <div class="stat-label">of each raise allocated to awareness — the same logic CPG and SaaS companies apply to every product launch</div>
+    </div>
+    <div class="stat-box" style="flex:1; min-width:180px;">
+      <div class="num amber">50–100×</div>
+      <div class="stat-label">ROI frame: every $1 of IR spend protects $50–$100 in market cap from selling pressure and dilution</div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px; font-size:11px; color:var(--grey); max-width:680px; line-height:1.7;">
+    This document is an independent industry thought piece for informational purposes only. Nothing herein constitutes investment advice, a solicitation, or a recommendation to buy or sell any security. All investor awareness and paid promotion activities are subject to full SEC Section 17(b) disclosure requirements and applicable securities laws. Consult qualified securities counsel before implementing any investor awareness program.
+  </div>
+
+  <div class="slide-footer" style="margin-top:40px; border-top:1px solid rgba(30,144,255,0.08); padding-top:24px; width:100%; justify-content:center; gap:40px;">
+    <div class="footer-brand">Investor Awareness Series</div>
+    <div class="footer-num">10 / 10</div>
+    <div class="footer-tag">© 2026 · All Rights Reserved</div>
+  </div>
+</section>
+
+</div><!-- #main -->
+
+<script>
+// Active nav highlight on scroll
+const sections = document.querySelectorAll('.slide');
+const navItems = document.querySelectorAll('.nav-item');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(item => item.classList.remove('active'));
+      const id = entry.target.id;
+      const active = document.querySelector(`.nav-item[href="#${id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
